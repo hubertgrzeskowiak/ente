@@ -1,0 +1,10 @@
+**/.settings/
+.project
+.classpath
+**/nb-configuration.xml
+*.swp
+*.log
+hs_err_pid*
+**/target/
+**/lib/
+*/test/

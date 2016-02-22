@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jpa:entity-mappings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:java="http://jcp.org/en/jsr/detail?id=270" xmlns:jpa="http://java.sun.com/xml/ns/persistence/orm" pkg="com.hugo.ente.models" version="2.0" xs="false" id="_14559060184991" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/orm orm_2_1.xsd">
+    <jpa:entity xre="false" sm="false" abs="false" class="Application" visibile="true" minimized="false" rootElement="_14559060184991" id="_1455906025563">
+        <jpa:attributes>
+            <basic attribute-type="String" visibile="true" name="name" id="_14559060350786">
+                <jpa:column unique="true" nullable="false" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <basic optional="true" attribute-type="String" visibile="true" name="description" id="_14559060353097">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="1023"/>
+            </basic>
+            <many-to-many collection-type="java.util.Set" connected-entity-id="_1455906119266" connected-attribute-id="_145590622801514" target-entity="HostMachine" visibile="true" name="hostMachines" id="_145590622801413">
+                <join-table/>
+            </many-to-many>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_14559060332545">
+                <jpa:column unique="true" nullable="false" insertable="false" updatable="false"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:entity xre="false" sm="false" abs="false" class="HostMachine" visibile="true" minimized="false" rootElement="_14559060184991" id="_1455906119266">
+        <jpa:attributes>
+            <basic optional="true" attribute-type="String" visibile="true" name="domainName" id="_145590614448510">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <basic optional="true" attribute-type="String" visibile="true" name="ipAddress" id="_145590615528511">
+                <jpa:column unique="false" nullable="true" insertable="true" updatable="true" length="255"/>
+            </basic>
+            <many-to-many mapped-by="hostMachines" collection-type="java.util.Set" connected-entity-id="_1455906025563" connected-attribute-id="_145590622801413" target-entity="Application" visibile="true" name="applications" id="_145590622801514"/>
+            <jpa:id attribute-type="Long" visibile="true" name="id" id="_14559061275979">
+                <jpa:column unique="true" nullable="false" insertable="false" updatable="false"/>
+                <jpa:generated-value strategy="AUTO"/>
+            </jpa:id>
+        </jpa:attributes>
+    </jpa:entity>
+    <jpa:c>
+        <ct>java.util.Set</ct>
+        <ct>java.util.List</ct>
+        <ct>java.util.Collection</ct>
+    </jpa:c>
+    <jpa:diagram id="_14559060184992">
+        <plane elementRef="_14559060184991" id="_14559060184993_p">
+            <shape elementRef="_1455906025563" id="_1455906025563_gui">
+                <Bounds x="189.0" y="131.0" width="159.0" height="147.0"/>
+            </shape>
+            <shape elementRef="_1455906119266" id="_1455906119266_gui">
+                <Bounds x="576.0" y="131.0" width="170.0" height="147.0"/>
+            </shape>
+        </plane>
+    </jpa:diagram>
+</jpa:entity-mappings>
