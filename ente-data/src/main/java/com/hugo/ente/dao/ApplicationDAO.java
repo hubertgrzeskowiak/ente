@@ -6,6 +6,7 @@
 package com.hugo.ente.dao;
 
 import com.hugo.ente.models.Application;
+import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
@@ -28,5 +29,9 @@ public class ApplicationDAO {
 
     public void persist(Application application) {
         em.persist(application);
+    }
+
+    public List<Application> getAll() {
+        return em.createQuery("SELECT app FROM Application app").getResultList();
     }
 }

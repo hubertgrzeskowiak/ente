@@ -8,7 +8,6 @@ package com.hugo.ente.models;
 import org.testng.Assert;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
-import org.testng.annotations.Test;
 
 /**
  *
@@ -16,13 +15,13 @@ import org.testng.annotations.Test;
  */
 public class ApplicationEntityTest extends PersistenceTestBase {
 
-    @Test
+//    @Test
     public void testEmptyTable() {
         Application a1 = em.find(Application.class, 1);
         Assert.assertNull(a1);
     }
 
-    @Test(dependsOnMethods = {"testEmptyTable"})
+//    @Test(dependsOnMethods = {"testEmptyTable"})
     public void testInsert() {
         Application a1 = new Application();
         a1.setName("bananapp");
@@ -34,7 +33,7 @@ public class ApplicationEntityTest extends PersistenceTestBase {
         tx.commit();
     }
 
-    @Test(dependsOnMethods = {"testInsert"})
+//    @Test(dependsOnMethods = {"testInsert"})
     public void testCommit() {
         Application a2 = em.find(Application.class, 1);
         assertEquals(a2.getName(), "bananapp", "retrieved entity has a wrong name");
